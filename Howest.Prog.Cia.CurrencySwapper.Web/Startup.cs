@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Howest.Prog.Cia.UnitConverter.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +25,9 @@ namespace Howest.Prog.Cia.CurrencySwapper.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddTransient<AmountValidator>();
+            services.AddTransient<CurrencyConverter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

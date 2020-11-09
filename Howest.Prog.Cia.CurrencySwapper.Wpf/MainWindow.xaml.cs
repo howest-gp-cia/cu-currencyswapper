@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Howest.Prog.Cia.UnitConverter.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,15 @@ namespace Howest.Prog.Cia.CurrencySwapper.Wpf
     public partial class MainWindow : Window
     {
         private const double EurToUsdRate = 1.189421; // op 9 november 2020
+        
+        private AmountValidator validator;
+        private CurrencyConverter converter;
 
         public MainWindow()
         {
+            validator = new AmountValidator();
+            converter = new CurrencyConverter();
+
             InitializeComponent();
         }
 
@@ -31,16 +38,29 @@ namespace Howest.Prog.Cia.CurrencySwapper.Wpf
         {
             string userInput = txtInput.Text;
 
-            if (!double.TryParse(userInput, out double amount) || amount < 0)
+            if (double.TryParse(userInput, out double amount))
             {
-                MessageBox.Show("Please enter a positive amount", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                var validationResult = validator.Validate(amount);
+                if (validationResult.IsValid)
+                {
+                    double convertedAmount = converter.Convert(amount, EurToUsdRate);
+
+                    txtOutput.Text = $"{amount} EUR = {convertedAmount:N2} USD";
+                }
+                else
+                {
+                    ShowErrorDialog(validationResult.ErrorMessage);
+                }
             }
             else
             {
-                double targetAmount = amount * EurToUsdRate;
-
-                txtOutput.Text = $"{amount} EUR = {targetAmount:N2} USD";
+                ShowErrorDialog($"Your input '{userInput}' must be a number");
             }
+        }
+
+        private void ShowErrorDialog(string errorMessage)
+        {
+            MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Howest.Prog.Cia.UnitConverter.Core;
+using System;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Cons
 {
@@ -8,22 +9,41 @@ namespace Howest.Prog.Cia.CurrencySwapper.Cons
 
         static void Main(string[] args)
         {
+            AmountValidator validator = new AmountValidator();
+            CurrencyConverter converter = new CurrencyConverter();
+
             Console.WriteLine("Currency Converter\n==============");
-            Console.Write("Enter amount (EUR): ");
-            string userInput = Console.ReadLine();
+            Console.WriteLine("-- enter non-number to exit. --\n");
+            bool numberEntered;
 
-            double amount;
-            if (!double.TryParse(userInput, out amount) || amount < 0)
+            do
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Enter a positive amount!");
-            }
-            else
-            {
-                double targetAmount = amount * EurToUsdRate;
+                Console.Write("Enter amount (EUR): ");
+                string userInput = Console.ReadLine();
+                numberEntered = double.TryParse(userInput, out double amount);
+                if (numberEntered)
+                {
+                    var validationResult = validator.Validate(amount);
+                    if (validationResult.IsValid)
+                    {
+                        double convertedAmount = converter.Convert(amount, EurToUsdRate);
 
-                Console.WriteLine($"{amount} EUR = {targetAmount:N2} USD");
-            }
+                        Console.WriteLine($"{amount} EUR = {convertedAmount:N2} USD");
+                    }
+                    else
+                    {
+                        ShowError(validationResult.ErrorMessage);
+                    }
+                }
+            } while (numberEntered);
+        }
+
+        static void ShowError(string errorMessage)
+        {
+            ConsoleColor currentColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(errorMessage);
+            Console.ForegroundColor = currentColor;
         }
     }
 }
