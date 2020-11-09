@@ -2,7 +2,7 @@
 {
     public class AmountValidator
     {
-        private const string AmountMustBePositive = "Amount must be a positive number";
+        public const string AmountMustBePositive = "Amount must be a positive number";
 
         public ValidationResult Validate(double amount)
         {

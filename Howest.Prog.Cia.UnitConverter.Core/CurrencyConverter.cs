@@ -4,7 +4,7 @@ namespace Howest.Prog.Cia.UnitConverter.Core
 {
     public class CurrencyConverter
     {
-        private const string AmountMustBePositive = "Conversion rate must be greater than zero";
+        public const string AmountMustBePositive = "Conversion rate must be greater than zero";
         
         public double Convert(double amount, double rate)
         {
