@@ -1,5 +1,5 @@
-﻿using Howest.Prog.Cia.CurrencySwapper.Web.Models;
-using Howest.Prog.Cia.UnitConverter.Core;
+﻿using Howest.Prog.Cia.CurrencySwapper.Core;
+using Howest.Prog.Cia.CurrencySwapper.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Web.Controllers

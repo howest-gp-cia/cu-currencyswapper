@@ -1,4 +1,3 @@
-using Howest.Prog.Cia.UnitConverter.Core;
 using System;
 using Xunit;
 

@@ -1,4 +1,3 @@
-using Howest.Prog.Cia.UnitConverter.Core;
 using Xunit;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests

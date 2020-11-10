@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Howest.Prog.Cia.UnitConverter.Core\Howest.Prog.Cia.UnitConverter.Core.csproj" />
+    <ProjectReference Include="..\Howest.Prog.Cia.CurrencySwapper.Core\Howest.Prog.Cia.CurrencySwapper.Core.csproj" />
   </ItemGroup>
 
 </Project>
