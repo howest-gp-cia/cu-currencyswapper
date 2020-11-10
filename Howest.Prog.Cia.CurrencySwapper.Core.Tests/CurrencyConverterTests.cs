@@ -1,4 +1,4 @@
-using Howest.Prog.Cia.UnitConverter.Core;
+using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
 using System;
 using Xunit;
 

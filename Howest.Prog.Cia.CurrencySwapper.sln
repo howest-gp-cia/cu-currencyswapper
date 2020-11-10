@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8C6C7A41-D12A-44C5-8D77-38074C5A8720}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest.Prog.Cia.UnitConverter.Core", "Howest.Prog.Cia.UnitConverter.Core\Howest.Prog.Cia.UnitConverter.Core.csproj", "{02C63CA0-94FA-40FC-A761-754D0444CFE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest.Prog.Cia.CurrencySwapper.Core.Tests", "Howest.Prog.Cia.CurrencySwapper.Core.Tests\Howest.Prog.Cia.CurrencySwapper.Core.Tests.csproj", "{44D0364A-EFFB-4A5E-B055-E9AC78F0F305}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howest.Prog.Cia.CurrencySwapper.Core.Tests", "Howest.Prog.Cia.CurrencySwapper.Core.Tests\Howest.Prog.Cia.CurrencySwapper.Core.Tests.csproj", "{44D0364A-EFFB-4A5E-B055-E9AC78F0F305}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest.Prog.Cia.CurrencySwapper.Core", "Howest.Prog.Cia.CurrencySwapper.Core\Howest.Prog.Cia.CurrencySwapper.Core.csproj", "{4223D250-58ED-4517-B6FA-BFA1F2B62794}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,14 +37,14 @@ Global
 		{57F3E514-7ADB-493C-B93A-CF8BEC594C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57F3E514-7ADB-493C-B93A-CF8BEC594C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57F3E514-7ADB-493C-B93A-CF8BEC594C11}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02C63CA0-94FA-40FC-A761-754D0444CFE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02C63CA0-94FA-40FC-A761-754D0444CFE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02C63CA0-94FA-40FC-A761-754D0444CFE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02C63CA0-94FA-40FC-A761-754D0444CFE3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{44D0364A-EFFB-4A5E-B055-E9AC78F0F305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{44D0364A-EFFB-4A5E-B055-E9AC78F0F305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44D0364A-EFFB-4A5E-B055-E9AC78F0F305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44D0364A-EFFB-4A5E-B055-E9AC78F0F305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4223D250-58ED-4517-B6FA-BFA1F2B62794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4223D250-58ED-4517-B6FA-BFA1F2B62794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4223D250-58ED-4517-B6FA-BFA1F2B62794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4223D250-58ED-4517-B6FA-BFA1F2B62794}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,8 +53,8 @@ Global
 		{3E57DCC0-3BC4-4B67-882A-21FC4669A27C} = {069EAD74-EDD4-4ECC-B36F-B6FE73163193}
 		{B735D117-6D08-453C-BB4C-C0D4233AFA2E} = {069EAD74-EDD4-4ECC-B36F-B6FE73163193}
 		{57F3E514-7ADB-493C-B93A-CF8BEC594C11} = {069EAD74-EDD4-4ECC-B36F-B6FE73163193}
-		{02C63CA0-94FA-40FC-A761-754D0444CFE3} = {B340916B-2F01-458C-BD6D-40EEB9354959}
 		{44D0364A-EFFB-4A5E-B055-E9AC78F0F305} = {8C6C7A41-D12A-44C5-8D77-38074C5A8720}
+		{4223D250-58ED-4517-B6FA-BFA1F2B62794} = {B340916B-2F01-458C-BD6D-40EEB9354959}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5CBC61F0-85AE-4E21-92F0-4E52452D708D}

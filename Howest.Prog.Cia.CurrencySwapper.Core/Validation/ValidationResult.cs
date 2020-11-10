@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Howest.Prog.Cia.UnitConverter.Core
+namespace Howest.Prog.Cia.CurrencySwapper.Core.Validation
 {
     public class ValidationResult
     {

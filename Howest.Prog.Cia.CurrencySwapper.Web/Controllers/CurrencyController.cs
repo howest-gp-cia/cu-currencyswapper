@@ -1,6 +1,7 @@
 ﻿using Howest.Prog.Cia.CurrencySwapper.Web.Models;
-using Howest.Prog.Cia.UnitConverter.Core;
 using Microsoft.AspNetCore.Mvc;
+using Howest.Prog.Cia.CurrencySwapper.Core.Validation;
+using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Web.Controllers
 {

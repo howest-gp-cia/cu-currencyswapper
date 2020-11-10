@@ -1,4 +1,4 @@
-﻿namespace Howest.Prog.Cia.UnitConverter.Core
+﻿namespace Howest.Prog.Cia.CurrencySwapper.Core.Validation
 {
     public class AmountValidator
     {

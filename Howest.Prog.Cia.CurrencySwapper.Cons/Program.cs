@@ -1,4 +1,5 @@
-﻿using Howest.Prog.Cia.UnitConverter.Core;
+﻿using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
+using Howest.Prog.Cia.CurrencySwapper.Core.Validation;
 using System;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Cons

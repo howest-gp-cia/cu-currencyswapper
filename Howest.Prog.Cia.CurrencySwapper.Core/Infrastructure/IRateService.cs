@@ -1,10 +1,10 @@
-﻿using Howest.Prog.Cia.UnitConverter.Core.Domain;
+﻿using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Howest.Prog.Cia.UnitConverter.Core.Infrastructure
+namespace Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure
 {
     public interface IRateService
     {
