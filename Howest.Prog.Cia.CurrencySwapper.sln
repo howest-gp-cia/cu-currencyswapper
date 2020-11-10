@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest.Prog.Cia.CurrencySwa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest.Prog.Cia.CurrencySwapper.Cons", "Howest.Prog.Cia.CurrencySwapper.Cons\Howest.Prog.Cia.CurrencySwapper.Cons.csproj", "{57F3E514-7ADB-493C-B93A-CF8BEC594C11}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{B340916B-2F01-458C-BD6D-40EEB9354959}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{B340916B-2F01-458C-BD6D-40EEB9354959}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8C6C7A41-D12A-44C5-8D77-38074C5A8720}"
 EndProject
