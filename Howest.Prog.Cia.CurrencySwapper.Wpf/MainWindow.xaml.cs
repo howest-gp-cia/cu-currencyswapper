@@ -1,5 +1,7 @@
 ﻿using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
+using Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure;
 using Howest.Prog.Cia.CurrencySwapper.Core.Validation;
+using Howest.Prog.Cia.CurrencySwapper.Infrastructure;
 using System.Windows;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Wpf
@@ -9,15 +11,15 @@ namespace Howest.Prog.Cia.CurrencySwapper.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const double EurToUsdRate = 1.189421; // op 9 november 2020
-        
-        private AmountValidator validator;
-        private CurrencyConverter converter;
+        private readonly AmountValidator validator;
+        private readonly CurrencyConverter converter;
+        private readonly IRateService rateService;
 
         public MainWindow()
         {
+            rateService = new ConstantRateService();
             validator = new AmountValidator();
-            converter = new CurrencyConverter();
+            converter = new CurrencyConverter(rateService);
 
             InitializeComponent();
         }
@@ -31,7 +33,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Wpf
                 var validationResult = validator.Validate(amount);
                 if (validationResult.IsValid)
                 {
-                    double convertedAmount = converter.Convert(amount, EurToUsdRate);
+                    double convertedAmount = converter.Convert(amount, "EUR", "USD");
 
                     txtOutput.Text = $"{amount} EUR = {convertedAmount:N2} USD";
                 }

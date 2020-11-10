@@ -11,10 +11,11 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         public void Convert_RateGreaterThenZero_ReturnsProductOfAmountAndRate()
         {
             //arrange
-            var converter = new CurrencyConverter();
             double amount = 2.5;
             double rate = 2.0;
             double expectedResult = 5.0;
+
+            var converter = new CurrencyConverter();
 
             //act
             double result = converter.Convert(amount, rate);

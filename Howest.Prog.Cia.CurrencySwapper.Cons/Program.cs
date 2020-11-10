@@ -1,17 +1,18 @@
 ﻿using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
+using Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure;
 using Howest.Prog.Cia.CurrencySwapper.Core.Validation;
+using Howest.Prog.Cia.CurrencySwapper.Infrastructure;
 using System;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Cons
 {
     class Program
     {
-        private const double EurToUsdRate = 1.189421; // op 9 november 2020
-
         static void Main(string[] args)
         {
+            IRateService rateService = new ConstantRateService();
             AmountValidator validator = new AmountValidator();
-            CurrencyConverter converter = new CurrencyConverter();
+            CurrencyConverter converter = new CurrencyConverter(rateService);
 
             Console.WriteLine("Currency Converter\n==============");
             Console.WriteLine("-- enter non-number to exit. --\n");
@@ -27,7 +28,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Cons
                     var validationResult = validator.Validate(amount);
                     if (validationResult.IsValid)
                     {
-                        double convertedAmount = converter.Convert(amount, EurToUsdRate);
+                        double convertedAmount = converter.Convert(amount, "EUR", "USD");
 
                         Console.WriteLine($"{amount} EUR = {convertedAmount:N2} USD");
                     }

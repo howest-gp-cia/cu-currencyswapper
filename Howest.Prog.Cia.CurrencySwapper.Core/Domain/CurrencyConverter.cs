@@ -1,10 +1,24 @@
-﻿using System;
+﻿using Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure;
+using System;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Core.Domain
 {
     public class CurrencyConverter
     {
         public const string AmountMustBePositive = "Conversion rate must be greater than zero";
+        private readonly IRateService _rateService;
+
+        public CurrencyConverter(IRateService rateService)
+        {
+            _rateService = rateService;
+        }
+
+        public double Convert(double amount, string fromCurrency, string toCurrency)
+        {
+            Rate rate = _rateService.GetRate(fromCurrency, toCurrency);
+
+            return Convert(amount, rate.ExchangeRate);
+        }
 
         public double Convert(double amount, double rate)
         {

@@ -8,8 +8,8 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure
 {
     public interface IRateService
     {
-        Task<Rate> GetRate(string fromCurrency, string toCurrency);
+        Rate GetRate(string fromCurrency, string toCurrency);
 
-        Task<IEnumerable<string>> GetSupportedCurrencies();
+        IEnumerable<string> GetSupportedCurrencies();
     }
 }
