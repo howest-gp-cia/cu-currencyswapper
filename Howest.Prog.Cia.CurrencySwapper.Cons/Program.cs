@@ -1,7 +1,7 @@
 ﻿using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
 using Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure;
 using Howest.Prog.Cia.CurrencySwapper.Core.Validation;
-using Howest.Prog.Cia.CurrencySwapper.Infrastructure;
+using Howest.Prog.Cia.CurrencySwapper.Infrastructure.CurrConv;
 using System;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Cons
@@ -10,7 +10,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Cons
     {
         static void Main(string[] args)
         {
-            IRateService rateService = new ConstantRateService();
+            IRateService rateService = new ExchangeRatesApiClient();
             AmountValidator validator = new AmountValidator();
             CurrencyConverter converter = new CurrencyConverter(rateService);
 

@@ -2,6 +2,7 @@
 using Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure;
 using Howest.Prog.Cia.CurrencySwapper.Core.Validation;
 using Howest.Prog.Cia.CurrencySwapper.Infrastructure;
+using Howest.Prog.Cia.CurrencySwapper.Infrastructure.CurrConv;
 using System.Windows;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Wpf
@@ -17,7 +18,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Wpf
 
         public MainWindow()
         {
-            rateService = new ConstantRateService();
+            rateService = new ExchangeRatesApiClient();
             validator = new AmountValidator();
             converter = new CurrencyConverter(rateService);
 

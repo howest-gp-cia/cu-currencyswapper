@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Howest.Prog.Cia.CurrencySwapper.Core\Howest.Prog.Cia.CurrencySwapper.Core.csproj" />
   </ItemGroup>
 

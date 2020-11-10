@@ -1,8 +1,5 @@
 ﻿using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure
 {
@@ -11,5 +8,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure
         Rate GetRate(string fromCurrency, string toCurrency);
 
         IEnumerable<string> GetSupportedCurrencies();
+
+        bool CanConvertBetween(string fromCurrency, string toCurrency);
     }
 }

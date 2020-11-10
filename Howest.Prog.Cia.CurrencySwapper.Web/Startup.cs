@@ -7,6 +7,7 @@ using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
 using Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure;
 using Howest.Prog.Cia.CurrencySwapper.Core.Validation;
 using Howest.Prog.Cia.CurrencySwapper.Infrastructure;
+using Howest.Prog.Cia.CurrencySwapper.Infrastructure.CurrConv;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,7 +31,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Web
         {
             services.AddControllersWithViews();
 
-            services.AddTransient<IRateService, ConstantRateService>();
+            services.AddTransient<IRateService, ExchangeRatesApiClient>();
             services.AddTransient<AmountValidator>();
             services.AddTransient<CurrencyConverter>();
         }

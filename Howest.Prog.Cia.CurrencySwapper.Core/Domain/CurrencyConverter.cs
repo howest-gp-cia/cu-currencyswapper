@@ -6,6 +6,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Domain
     public class CurrencyConverter
     {
         public const string AmountMustBePositive = "Conversion rate must be greater than zero";
+        public const string CantConvert = "Can't convert between {0} and {1}";
         private readonly IRateService _rateService;
 
         public CurrencyConverter(IRateService rateService)
@@ -15,9 +16,15 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Domain
 
         public double Convert(double amount, string fromCurrency, string toCurrency)
         {
-            Rate rate = _rateService.GetRate(fromCurrency, toCurrency);
-
-            return Convert(amount, rate.ExchangeRate);
+            if (_rateService.CanConvertBetween(fromCurrency, toCurrency))
+            {
+                Rate rate = _rateService.GetRate(fromCurrency, toCurrency);
+                return Convert(amount, rate.ExchangeRate);
+            }
+            else
+            {
+                throw new NotSupportedException(string.Format(CantConvert, fromCurrency, toCurrency));
+            }
         }
 
         public double Convert(double amount, double rate)

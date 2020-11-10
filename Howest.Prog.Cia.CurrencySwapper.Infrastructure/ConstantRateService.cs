@@ -26,5 +26,11 @@ namespace Howest.Prog.Cia.CurrencySwapper.Infrastructure
         {
             return _rates.Select(e => e.FromCurrency).Distinct().OrderBy(currency => currency);
         }
+
+        public bool CanConvertBetween(string fromCurrency, string toCurrency)
+        {
+            var currencies = GetSupportedCurrencies();
+            return currencies.Any(c => c == fromCurrency || c == toCurrency);
+        }
     }
 }
