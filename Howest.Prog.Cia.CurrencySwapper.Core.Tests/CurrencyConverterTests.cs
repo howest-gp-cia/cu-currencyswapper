@@ -71,89 +71,33 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         public void Convert_ConvertibleCurrencies_ReturnsProductOfAmountAndRate() //testing Convert(double, string, string)
         {
             //arrange
-            double amount = 2.5;
-
-            var rate = new Rate
-            {
-                FromCurrency = "AAA",
-                ToCurrency = "BBB",
-                ExchangeRate = 2.0
-            };
-
-            double expectedResult = 5.0;
-
-            var rateService = new Mock<IRateService>();
-            rateService
-                .Setup(m => m.CanConvertBetween(rate.FromCurrency, rate.ToCurrency))
-                .Returns(true);
-
-            rateService
-                .Setup(m => m.GetRate(rate.FromCurrency, rate.ToCurrency))
-                .Returns(rate);
-
-            var converter = new CurrencyConverter(rateService.Object);
 
             //act
-            double result = converter.Convert(amount, rate.FromCurrency, rate.ToCurrency);
 
             //assert
-            Assert.Equal(expectedResult, result);
+            throw new NotImplementedException();
         }
 
         [Fact(DisplayName = "Currency Conversion uses IRateService.GetRate")]
         public void Convert_CallsIRateServiceGetRate() //testing Convert(double, string, string)
         {
             //arrange
-            double amount = 2.5;
-            var rate = new Rate
-            {
-                FromCurrency = "AAA",
-                ToCurrency = "BBB",
-                ExchangeRate = 2.0
-            };
-
-            var rateService = new Mock<IRateService>();
-            rateService
-                .Setup(m => m.CanConvertBetween(It.IsAny<string>(), It.IsAny<string>()))
-                .Returns(true);
-
-            rateService
-               .Setup(m => m.GetRate(It.IsAny<string>(), It.IsAny<string>()))
-               .Returns(rate);
-
-            var converter = new CurrencyConverter(rateService.Object);
 
             //act
-            converter.Convert(amount, rate.FromCurrency, rate.ToCurrency);
 
             //assert
-            rateService.Verify(mock => mock.GetRate(rate.FromCurrency, rate.ToCurrency));
+            throw new NotImplementedException();
         }
 
         [Fact(DisplayName = "Converting to or from an unknown currency throws NotSupportedException")]
         public void Convert_InconvertibleCurrencies_NotSupportedException() //testing Convert(double, string, string)
         {
             //arrange
-            double amount = 2.5;
-            var rate = new Rate
-            {
-                FromCurrency = "AAA",
-                ToCurrency = "BBB",
-                ExchangeRate = 2.0
-            };
-
-            var rateService = new Mock<IRateService>();
-            rateService
-                .Setup(m => m.CanConvertBetween(rate.FromCurrency, rate.ToCurrency))
-                .Returns(false);
-
-            var converter = new CurrencyConverter(rateService.Object);
 
             //act
-            Action conversion = new Action(() => converter.Convert(amount, rate.FromCurrency, rate.ToCurrency));
 
             //assert
-            Assert.Throws<NotSupportedException>(conversion);
+            throw new NotImplementedException();
         }
 
     }
