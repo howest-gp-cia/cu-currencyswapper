@@ -6,13 +6,13 @@
 
 ## Use the branches
 
--   ### No seperation, no tests
+-   ### No separation, no tests
     Untestable version no separation of concerns.<br />
     Available as a MVC, WPF and Console application
 
     Branch: `demo/1-no-separation` 
 
--   ### Basic seperation, basic Unit Tests
+-   ### Basic separation, basic Unit Tests
     Splits business logic form UI, making the logic testable.
     
     Branch: `demo/2-basic-separation` 
