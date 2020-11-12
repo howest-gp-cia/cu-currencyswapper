@@ -9,7 +9,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
 
     public class CurrencyConverterTests
     {
-        [Fact]
+        [Fact(DisplayName = "Converting result with a valid rate multiplies amount with rate")]
         public void Convert_RateGreaterThenZero_ReturnsProductOfAmountAndRate() //testing Convert(double, double)
         {
             //arrange
@@ -27,7 +27,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
             Assert.Equal(expectedResult, result);
         }
 
-        [Theory]
+        [Theory(DisplayName = "Converting with a rate <= 0 throws Exception", Skip = "Tested in Convert_RateLessOrEqualToZero_ThrowsArgumentExceptionWithParamNameRate")]
         [InlineData(0)]
         [InlineData(-12.345)]
         [InlineData(double.MinValue)]
@@ -46,7 +46,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
             Assert.ThrowsAny<Exception>(conversion);
         }
 
-        [Theory]
+        [Theory(DisplayName = "Converting with a rate <= 0 throws ArgumentException containing the parameter name")]
         [InlineData(0)]
         [InlineData(-12.345)]
         [InlineData(double.MinValue)]
@@ -67,7 +67,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
             Assert.Equal(expectedParamName, exception.ParamName);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Converting between known currencies returns correct foreign amount")]
         public void Convert_ConvertibleCurrencies_ReturnsProductOfAmountAndRate() //testing Convert(double, string, string)
         {
             //arrange
@@ -100,7 +100,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
             Assert.Equal(expectedResult, result);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Currency Conversion uses IRateService.GetRate")]
         public void Convert_CallsIRateServiceGetRate() //testing Convert(double, string, string)
         {
             //arrange
@@ -130,7 +130,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
             rateService.Verify(mock => mock.GetRate(rate.FromCurrency, rate.ToCurrency));
         }
 
-        [Fact]
+        [Fact(DisplayName = "Converting to or from an unknown currency throws NotSupportedException")]
         public void Convert_InconvertibleCurrencies_NotSupportedException() //testing Convert(double, string, string)
         {
             //arrange
