@@ -1,12 +1,13 @@
 ﻿using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
 using Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure;
+using Howest.Prog.Cia.CurrencySwapper.Infrastructure.CurrConv;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Howest.Prog.Cia.CurrencySwapper.Infrastructure.CurrConv
+namespace Howest.Prog.Cia.CurrencySwapper.Infrastructure.Realtime
 {
     /// <summary>
     /// Queries the online ExchangeRatesApi which provides currency rates published by the European Central Bank
