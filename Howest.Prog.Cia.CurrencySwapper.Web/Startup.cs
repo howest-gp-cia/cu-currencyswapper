@@ -7,7 +7,7 @@ using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
 using Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure;
 using Howest.Prog.Cia.CurrencySwapper.Core.Validation;
 using Howest.Prog.Cia.CurrencySwapper.Infrastructure;
-using Howest.Prog.Cia.CurrencySwapper.Infrastructure.CurrConv;
+using Howest.Prog.Cia.CurrencySwapper.Infrastructure.Realtime;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
