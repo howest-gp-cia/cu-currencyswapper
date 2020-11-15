@@ -135,22 +135,18 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         {
             //arrange
             double amount = 2.5;
-            var rate = new Rate
-            {
-                FromCurrency = "AAA",
-                ToCurrency = "BBB",
-                ExchangeRate = 2.0
-            };
+            string fromCurrency = "AAA";
+            string toCurrency = "BBB";
 
             var rateService = new Mock<IRateService>();
             rateService
-                .Setup(m => m.CanConvertBetween(rate.FromCurrency, rate.ToCurrency))
+                .Setup(m => m.CanConvertBetween(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(false);
 
             var converter = new CurrencyConverter(rateService.Object);
 
             //act
-            Action conversion = new Action(() => converter.Convert(amount, rate.FromCurrency, rate.ToCurrency));
+            Action conversion = new Action(() => converter.Convert(amount, fromCurrency, toCurrency));
 
             //assert
             Assert.Throws<NotSupportedException>(conversion);
