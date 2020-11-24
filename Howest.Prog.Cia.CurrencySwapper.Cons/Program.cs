@@ -1,7 +1,7 @@
 ﻿using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
 using Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure;
 using Howest.Prog.Cia.CurrencySwapper.Core.Validation;
-using Howest.Prog.Cia.CurrencySwapper.Infrastructure.CurrConv;
+using Howest.Prog.Cia.CurrencySwapper.Infrastructure.Realtime;
 using System;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Cons
