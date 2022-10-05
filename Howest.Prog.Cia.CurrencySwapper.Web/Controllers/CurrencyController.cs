@@ -5,7 +5,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Web.Controllers
 {
     public class CurrencyController : Controller
     {
-        private const double EurToUsdRate = 1.189421; // op 9 november 2020
+        private const double EurToUsdRate = 0.98913127; // op 5 oktober 2022
 
         public CurrencyController()
         {
