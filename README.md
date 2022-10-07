@@ -23,3 +23,20 @@
     This creates a dependency which will need to be mocked.
 
     Branch: `demo/3-extend-conversion` 
+
+    - View [API documentation](https://apilayer.com/marketplace/exchangerates_data-api). 
+    - [API key]((https://apilayer.com/marketplace/exchangerates_data-api?preview=true#pricing)) should be provided (appsettings.json, Visual Studio user secrets, ...)
+    - Using Visual Studio user secrets
+
+      Right click project **Howest.Prog.Cia.CurrencySwapper.Infrastructure**, *Manage User Secrets* 
+
+        Provide key in *secrets.json*:
+
+        ```json
+        { 
+            "Howest.Prog.Cia.CurrencySwapper.Infrastructure.Realtime.KeyConfig.ConfigurationOptions": {
+            "ApiLayerApiKey": "YOUR KEY HERE"
+            }
+        }
+        ```
+
