@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30621.155
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest.Prog.Cia.CurrencySwapper.Wpf", "Howest.Prog.Cia.CurrencySwapper.Wpf\Howest.Prog.Cia.CurrencySwapper.Wpf.csproj", "{3E57DCC0-3BC4-4B67-882A-21FC4669A27C}"
 EndProject
@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest.Prog.Cia.CurrencySwa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest.Prog.Cia.CurrencySwapper.Core", "Howest.Prog.Cia.CurrencySwapper.Core\Howest.Prog.Cia.CurrencySwapper.Core.csproj", "{4223D250-58ED-4517-B6FA-BFA1F2B62794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howest.Prog.Cia.CurrencySwapper.Infrastructure", "Howest.Prog.Cia.CurrencySwapper.Infrastructure\Howest.Prog.Cia.CurrencySwapper.Infrastructure.csproj", "{83689947-D1B0-445B-82D7-4EBB7004EB90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest.Prog.Cia.CurrencySwapper.Infrastructure", "Howest.Prog.Cia.CurrencySwapper.Infrastructure\Howest.Prog.Cia.CurrencySwapper.Infrastructure.csproj", "{83689947-D1B0-445B-82D7-4EBB7004EB90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,11 @@
 ﻿using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
 using Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure;
 using Howest.Prog.Cia.CurrencySwapper.Infrastructure.CurrConv;
+using Howest.Prog.Cia.CurrencySwapper.Infrastructure.Realtime.KeyConfig;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -13,22 +18,32 @@ namespace Howest.Prog.Cia.CurrencySwapper.Infrastructure.Realtime
     /// Queries the online ExchangeRatesApi which provides currency rates published by the European Central Bank
     /// </summary>
     /// <remarks>
-    /// View documentation here https://exchangeratesapi.io/ 
+    /// View documentation here https://apilayer.com/marketplace/exchangerates_data-api
+    /// API key should be provided (appsettings.json, Visual Studio user secrets, ...)
+    /// Create API key through: https://apilayer.com/marketplace/exchangerates_data-api?preview=true#pricing
+    /// Using Visual Studio user secrets:
+    /// Right click project Howest.Prog.Cia.CurrencySwapper.Infrastructure, Manage User Secrets
+    /// Provide:
+    /// {
+    ///    "Howest.Prog.Cia.CurrencySwapper.Infrastructure.Realtime.KeyConfig.ConfigurationOptions": {
+    ///       "ApiLayerApiKey": "YOUR KEY HERE"
+    ///    }
+    /// }
     /// </remarks>
     public class ExchangeRatesApiClient : IRateService
     {
-        private string ApiConvertUrl = "https://api.exchangeratesapi.io/latest?base={0}&symbols={1}";
-        private string ApiCurrenciesUrl = "https://api.exchangeratesapi.io/latest";
+        private string ApiCurrenciesUrl = "https://api.apilayer.com/exchangerates_data/symbols";
+        private string ApiRatesUrl = "https://api.apilayer.com/exchangerates_data/latest?symbols={0}&base={1}";
 
         public ExchangeRatesApiClient()
         {
 
         }
-
+        
         public Rate GetRate(string fromCurrency, string toCurrency)
         {
             double rate = 0;
-            string url = string.Format(ApiConvertUrl, fromCurrency, toCurrency);
+            string url = string.Format(ApiRatesUrl, toCurrency, fromCurrency);
             string json = ReadJsonFromUrl(url);
 
             using (var document = JsonDocument.Parse(json))
@@ -48,9 +63,8 @@ namespace Howest.Prog.Cia.CurrencySwapper.Infrastructure.Realtime
         {
             string url = string.Format(ApiCurrenciesUrl);
             string json = ReadJsonFromUrl(url);
-            var dto = JsonSerializer.Deserialize<ResultsDto>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-            var supportedCurrencies = dto.Rates.Select(result => result.Key).ToList();
-            supportedCurrencies.Add("EUR");
+            var dto = JsonSerializer.Deserialize<CurrrenciesDto>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            var supportedCurrencies = dto.Symbols.Select(result => result.Key).ToList();
             return supportedCurrencies.OrderBy(code => code);
         }
 
@@ -62,21 +76,18 @@ namespace Howest.Prog.Cia.CurrencySwapper.Infrastructure.Realtime
 
         protected string ReadJsonFromUrl(string url)
         {
-            Task<string> webTask = Task.Run(() =>
-            {
-                using (var client = new HttpClient())
-                {
+            var client = new RestClient(url);
+            var request = new RestRequest();
+            request.AddHeader("apikey", OptainApiKey());
+            RestResponse response = client.Execute(request);
+            return response.Content;    
+        }
 
-                    var response = client.GetAsync(url).Result;
-                    if (response.IsSuccessStatusCode)
-                    {
-                        return response.Content.ReadAsStringAsync();
-                    }
-                }
-                return null;
-            });
-
-            return webTask.Result;
+        protected string OptainApiKey()
+        {
+            var services = ServiceProviderBuilder.GetServiceProvider(new string[] { });
+            var options = services.GetRequiredService<IOptions<ConfigurationOptions>>();
+            return options.Value.ApiLayerApiKey;
         }
     }
 }
