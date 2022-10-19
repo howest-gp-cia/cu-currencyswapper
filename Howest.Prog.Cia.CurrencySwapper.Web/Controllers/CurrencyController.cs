@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Howest.Prog.Cia.CurrencySwapper.Core.Validation;
 using Howest.Prog.Cia.CurrencySwapper.Core.Domain;
+using Howest.Prog.Cia.CurrencySwapper.Core.Infrastructure;
 
 namespace Howest.Prog.Cia.CurrencySwapper.Web.Controllers
 {
     public class CurrencyController : Controller
     {
-        private const double EurToUsdRate = 0.98913127; // op 5 oktober 2022
         private readonly AmountValidator _validator;
         private readonly CurrencyConverter _converter;
 
@@ -16,6 +16,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Web.Controllers
             _validator = validator;
             _converter = converter;
         }
+       
 
         public IActionResult Convert()
         {
@@ -30,7 +31,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Web.Controllers
             var validationResult = _validator.Validate(amount);
             if (validationResult.IsValid)
             {
-                double convertedAmount = _converter.Convert(amount, EurToUsdRate);
+                double convertedAmount = _converter.Convert(amount, "EUR", "USD");
                 model.ConvertedAmount = convertedAmount;
                 model.ShowResult = true;
                 return View(model);
