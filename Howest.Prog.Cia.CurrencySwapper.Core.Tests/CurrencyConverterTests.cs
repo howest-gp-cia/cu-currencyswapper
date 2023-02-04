@@ -27,7 +27,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
             Assert.Equal(expectedResult, result);
         }
 
-        [Theory(DisplayName = "Converting with a rate <= 0 throws Exception", Skip = "Tested in Convert_RateLessOrEqualToZero_ThrowsArgumentExceptionWithParamNameRate")]
+        [Theory(DisplayName = "Converting with a rate <= 0 throws Exception", Skip = "Skipped: already tested in Convert_RateLessOrEqualToZero_ThrowsArgumentExceptionWithParamNameRate")]
         [InlineData(0)]
         [InlineData(-12.345)]
         [InlineData(double.MinValue)]

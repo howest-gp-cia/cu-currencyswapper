@@ -8,8 +8,6 @@ namespace Howest.Prog.Cia.CurrencySwapper.Cons
 {
     class Program
     {
-        private const double EurToUsdRate = 0.98913127; // op 5 oktober 2022
-
         static void Main(string[] args)
         {
             IRateService rateService = new ExchangeRatesApiClient();
