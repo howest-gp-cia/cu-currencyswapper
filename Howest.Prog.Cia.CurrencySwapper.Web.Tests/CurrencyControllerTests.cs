@@ -2,7 +2,6 @@ using Howest.Prog.Cia.CurrencySwapper.Core;
 using Howest.Prog.Cia.CurrencySwapper.Web.Controllers;
 using Howest.Prog.Cia.CurrencySwapper.Web.Models;
 using Microsoft.AspNetCore.Mvc;
-using Moq;
 using System;
 using Xunit;
 
