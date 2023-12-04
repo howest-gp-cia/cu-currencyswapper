@@ -6,7 +6,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Domain
 {
     public class Rate
     {
-        public double ExchangeRate { get; set; }
+        public decimal ExchangeRate { get; set; }
 
         public string FromCurrency { get; set; }
 

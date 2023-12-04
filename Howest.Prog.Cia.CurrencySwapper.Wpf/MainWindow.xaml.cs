@@ -28,12 +28,12 @@ namespace Howest.Prog.Cia.CurrencySwapper.Wpf
         {
             string userInput = txtInput.Text;
 
-            if (double.TryParse(userInput, out double amount))
+            if (decimal.TryParse(userInput, out decimal amount))
             {
                 var validationResult = validator.Validate(amount);
                 if (validationResult.IsValid)
                 {
-                    double convertedAmount = converter.Convert(amount, "EUR", "USD");
+                    decimal convertedAmount = converter.Convert(amount, "EUR", "USD");
 
                     txtOutput.Text = $"{amount} EUR = {convertedAmount:N2} USD";
                 }

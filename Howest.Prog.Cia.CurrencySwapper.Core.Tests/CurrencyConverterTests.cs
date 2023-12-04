@@ -10,18 +10,18 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
     public class CurrencyConverterTests
     {
         [Fact(DisplayName = "Converting result with a valid rate multiplies amount with rate")]
-        public void Convert_RateGreaterThenZero_ReturnsProductOfAmountAndRate() //testing Convert(double, double)
+        public void Convert_RateGreaterThenZero_ReturnsProductOfAmountAndRate() //testing Convert(decimal, decimal)
         {
             //arrange
-            double amount = 2.5;
-            double rate = 2.0;
-            double expectedResult = 5.0;
+            decimal amount = 2.5M;
+            decimal rate = 2.0M;
+            decimal expectedResult = 5.0M;
 
             var rateService = new Mock<IRateService>();
             var converter = new CurrencyConverter(rateService.Object);
 
             //act
-            double result = converter.Convert(amount, rate);
+            decimal result = converter.Convert(amount, rate);
 
             //assert
             Assert.Equal(expectedResult, result);
@@ -30,11 +30,10 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         [Theory(DisplayName = "Converting with a rate <= 0 throws Exception", Skip = "Skipped: already tested in Convert_RateLessOrEqualToZero_ThrowsArgumentExceptionWithParamNameRate")]
         [InlineData(0)]
         [InlineData(-12.345)]
-        [InlineData(double.MinValue)]
-        public void Convert_RateLessOrEqualToZero_ThrowsException(double rate) //testing Convert(double, double)
+        public void Convert_RateLessOrEqualToZero_ThrowsException(decimal rate) //testing Convert(decimal, decimal)
         {
             //arrange
-            var amount = 2.5;
+            decimal amount = 2.5M;
 
             var rateService = new Mock<IRateService>();
             var converter = new CurrencyConverter(rateService.Object);
@@ -49,11 +48,10 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         [Theory(DisplayName = "Converting with a rate <= 0 throws ArgumentException containing the parameter name")]
         [InlineData(0)]
         [InlineData(-12.345)]
-        [InlineData(double.MinValue)]
-        public void Convert_RateLessOrEqualToZero_ThrowsArgumentExceptionWithParamNameRate(double rate) //testing Convert(double, double)
+        public void Convert_RateLessOrEqualToZero_ThrowsArgumentExceptionWithParamNameRate(decimal rate) //testing Convert(decimal, decimal)
         {
             //arrange
-            var amount = 2.5;
+            decimal amount = 2.5M;
             var expectedParamName = "rate";
 
             var rateService = new Mock<IRateService>();
@@ -68,7 +66,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         }
 
         [Fact(DisplayName = "Converting between known currencies returns correct foreign amount")]
-        public void Convert_ConvertibleCurrencies_ReturnsProductOfAmountAndRate() //testing Convert(double, string, string)
+        public void Convert_ConvertibleCurrencies_ReturnsProductOfAmountAndRate() //testing Convert(decimal, string, string)
         {
             //arrange
 
@@ -79,7 +77,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         }
 
         [Fact(DisplayName = "Currency Conversion uses IRateService.GetRate")]
-        public void Convert_CallsIRateServiceGetRate() //testing Convert(double, string, string)
+        public void Convert_CallsIRateServiceGetRate() //testing Convert(decimal, string, string)
         {
             //arrange
 
@@ -90,7 +88,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         }
 
         [Fact(DisplayName = "Converting to or from an unknown currency throws NotSupportedException")]
-        public void Convert_InconvertibleCurrencies_NotSupportedException() //testing Convert(double, string, string)
+        public void Convert_InconvertibleCurrencies_NotSupportedException() //testing Convert(decimal, string, string)
         {
             //arrange
 

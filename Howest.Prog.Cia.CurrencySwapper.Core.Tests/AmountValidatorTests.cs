@@ -8,8 +8,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         [Theory]
         [InlineData(0.0)]
         [InlineData(12.345)]
-        [InlineData(double.MaxValue)]
-        public void Validate_AmountGreaterOrEqualToZero_ReturnsResultWithValidTrue(double amount)
+        public void Validate_AmountGreaterOrEqualToZero_ReturnsResultWithValidTrue(decimal amount)
         {
             //arrange
             var validator = new AmountValidator();
@@ -24,8 +23,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         [Theory]
         [InlineData(-0.01)]
         [InlineData(-12.345)]
-        [InlineData(double.MinValue)]
-        public void Validate_AmountLessThanZero_ReturnsResultWithValidFalse(double amount)
+        public void Validate_AmountLessThanZero_ReturnsResultWithValidFalse(decimal amount)
         {
             //arrange
             var validator = new AmountValidator();
@@ -41,8 +39,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         [Theory]
         [InlineData(-0.01)]
         [InlineData(-12.345)]
-        [InlineData(double.MinValue)]
-        public void Validate_AmountLessThanZero_ReturnsResultWithErrorMessage(double amount)
+        public void Validate_AmountLessThanZero_ReturnsResultWithErrorMessage(decimal amount)
         {
             //arrange
             var validator = new AmountValidator();
