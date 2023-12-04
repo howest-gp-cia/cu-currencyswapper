@@ -22,13 +22,13 @@ namespace Howest.Prog.Cia.CurrencySwapper.Cons
             {
                 Console.Write("Enter amount (EUR): ");
                 string userInput = Console.ReadLine();
-                numberEntered = double.TryParse(userInput, out double amount);
+                numberEntered = decimal.TryParse(userInput, out decimal amount);
                 if (numberEntered)
                 {
                     var validationResult = validator.Validate(amount);
                     if (validationResult.IsValid)
                     {
-                        double convertedAmount = converter.Convert(amount, "EUR", "USD");
+                        decimal convertedAmount = converter.Convert(amount, "EUR", "USD");
 
                         Console.WriteLine($"{amount} EUR = {convertedAmount:N2} USD");
                     }

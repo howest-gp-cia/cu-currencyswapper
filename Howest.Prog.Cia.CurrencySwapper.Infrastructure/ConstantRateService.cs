@@ -10,8 +10,8 @@ namespace Howest.Prog.Cia.CurrencySwapper.Infrastructure
     {
         private readonly List<Rate> _rates = new List<Rate>
         {
-            new Rate { ExchangeRate = 1.189421, FromCurrency = "EUR", ToCurrency = "USD" },
-            new Rate { ExchangeRate = 1 / 1.189421, FromCurrency = "USD", ToCurrency = "EUR" },
+            new Rate { ExchangeRate = 1.189421M, FromCurrency = "EUR", ToCurrency = "USD" },
+            new Rate { ExchangeRate = 1 / 1.189421M, FromCurrency = "USD", ToCurrency = "EUR" },
         };
 
         public Rate GetRate(string fromCurrency, string toCurrency)

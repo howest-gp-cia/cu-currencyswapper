@@ -14,7 +14,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Domain
             _rateService = rateService;
         }
 
-        public double Convert(double amount, string fromCurrency, string toCurrency)
+        public decimal Convert(decimal amount, string fromCurrency, string toCurrency)
         {
             if (_rateService.CanConvertBetween(fromCurrency, toCurrency))
             {
@@ -27,7 +27,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Domain
             }
         }
 
-        public double Convert(double amount, double rate)
+        public decimal Convert(decimal amount, decimal rate)
         {
             if (rate <= 0)   //domain rule, koers kan nooit negatief of nul zijn
             {

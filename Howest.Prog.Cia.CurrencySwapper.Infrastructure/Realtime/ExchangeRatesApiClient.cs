@@ -42,13 +42,13 @@ namespace Howest.Prog.Cia.CurrencySwapper.Infrastructure.Realtime
         
         public Rate GetRate(string fromCurrency, string toCurrency)
         {
-            double rate = 0;
+            decimal rate = 0M;
             string url = string.Format(ApiRatesUrl, toCurrency, fromCurrency);
             string json = ReadJsonFromUrl(url);
 
             using (var document = JsonDocument.Parse(json))
             {
-                rate = document.RootElement.GetProperty("rates").GetProperty(toCurrency).GetDouble();
+                rate = document.RootElement.GetProperty("rates").GetProperty(toCurrency).GetDecimal();
             }
 
             return new Rate

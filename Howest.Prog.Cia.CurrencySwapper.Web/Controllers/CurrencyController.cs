@@ -26,12 +26,12 @@ namespace Howest.Prog.Cia.CurrencySwapper.Web.Controllers
         [HttpPost]
         public IActionResult Convert(ConvertViewModel model)
         {
-            double amount = model.Amount;
+            decimal amount = model.Amount;
 
             var validationResult = _validator.Validate(amount);
             if (validationResult.IsValid)
             {
-                double convertedAmount = _converter.Convert(amount, "EUR", "USD");
+                decimal convertedAmount = _converter.Convert(amount, "EUR", "USD");
                 model.ConvertedAmount = convertedAmount;
                 model.ShowResult = true;
                 return View(model);
