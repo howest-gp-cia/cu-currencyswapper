@@ -20,7 +20,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const double EurToUsdRate = 1.0813771; //1 EUR is altijd 1,08 USD
+        private const decimal EurToUsdRate = 1.0813771M; //1 EUR is altijd 1,08 USD
 
         public MainWindow()
         {
@@ -31,13 +31,13 @@ namespace Howest.Prog.Cia.CurrencySwapper.Wpf
         {
             string userInput = txtInput.Text;
 
-            if (!double.TryParse(userInput, out double amount) || amount < 0)
+            if (!decimal.TryParse(userInput, out decimal amount) || amount < 0)
             {
                 MessageBox.Show("Please enter a positive amount", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {
-                double targetAmount = amount * EurToUsdRate;
+                decimal targetAmount = amount * EurToUsdRate;
 
                 txtOutput.Text = $"{amount} EUR = {targetAmount:N2} USD";
             }
