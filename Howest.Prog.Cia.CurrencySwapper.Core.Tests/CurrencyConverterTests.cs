@@ -11,12 +11,12 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         {
             //arrange
             var converter = new CurrencyConverter();
-            double amount = 2.5;
-            double rate = 2.0;
-            double expectedResult = 5.0;
+            decimal amount = 2.5M;
+            decimal rate = 2.0M;
+            decimal expectedResult = 5.0M;
 
             //act
-            double result = converter.Convert(amount, rate);
+            decimal result = converter.Convert(amount, rate);
 
             //assert
             Assert.Equal(expectedResult, result);
@@ -25,12 +25,11 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         [Theory]
         [InlineData(0)]
         [InlineData(-12.345)]
-        [InlineData(double.MinValue)]
-        public void Convert_RateLessOrEqualToZero_ThrowsException(double rate)
+        public void Convert_RateLessOrEqualToZero_ThrowsException(decimal rate)
         {
             //arrange
             var converter = new CurrencyConverter();
-            var amount = 2.5;
+            decimal amount = 2.5M;
 
             //act
             Action conversion = new Action(() => converter.Convert(amount, rate));
@@ -43,13 +42,12 @@ namespace Howest.Prog.Cia.CurrencySwapper.Core.Tests
         [Theory]
         [InlineData(0)]
         [InlineData(-12.345)]
-        [InlineData(double.MinValue)]
-        public void Convert_RateLessOrEqualToZero_ThrowsArgumentExceptionWithParamNameRate(double rate)
+        public void Convert_RateLessOrEqualToZero_ThrowsArgumentExceptionWithParamNameRate(decimal rate)
         {
             //arrange
             var converter = new CurrencyConverter();
-            var amount = 2.5;
-            var expectedParamName = "rate";
+            decimal amount = 2.5M;
+            string expectedParamName = "rate";
 
             //act
             Action conversion = new Action(() => converter.Convert(amount, rate));
