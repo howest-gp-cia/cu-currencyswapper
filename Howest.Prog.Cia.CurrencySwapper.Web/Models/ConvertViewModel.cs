@@ -11,9 +11,9 @@ namespace Howest.Prog.Cia.CurrencySwapper.Web.Models
 
         public string TargetCurrency { get; set; }
 
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
 
-        public double ConvertedAmount { get; set; }
+        public decimal ConvertedAmount { get; set; }
 
         public bool ShowResult { get; set; }
     }

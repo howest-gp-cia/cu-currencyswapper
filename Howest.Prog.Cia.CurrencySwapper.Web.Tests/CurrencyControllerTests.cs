@@ -41,7 +41,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Web.Tests
 
     public class FakeAmountValidator : AmountValidator
     {
-        public override ValidationResult Validate(double amount)
+        public override ValidationResult Validate(decimal amount)
         {
             return new ValidationResult { IsValid = false, ErrorMessage = "Fake Error" };
         }

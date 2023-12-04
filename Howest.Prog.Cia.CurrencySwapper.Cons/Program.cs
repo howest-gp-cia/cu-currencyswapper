@@ -5,7 +5,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Cons
 {
     class Program
     {
-        private const double EurToUsdRate = 1.0813771; //1 EUR is altijd 1,08 USD
+        private const decimal EurToUsdRate = 1.0813771M; //1 EUR is altijd 1,08 USD
 
         static void Main(string[] args)
         {
@@ -20,13 +20,13 @@ namespace Howest.Prog.Cia.CurrencySwapper.Cons
             {
                 Console.Write("Enter amount (EUR): ");
                 string userInput = Console.ReadLine();
-                numberEntered = double.TryParse(userInput, out double amount);
+                numberEntered = decimal.TryParse(userInput, out decimal amount);
                 if (numberEntered)
                 {
                     var validationResult = validator.Validate(amount);
                     if (validationResult.IsValid)
                     {
-                        double convertedAmount = converter.Convert(amount, EurToUsdRate);
+                        decimal convertedAmount = converter.Convert(amount, EurToUsdRate);
 
                         Console.WriteLine($"{amount} EUR = {convertedAmount:N2} USD");
                     }

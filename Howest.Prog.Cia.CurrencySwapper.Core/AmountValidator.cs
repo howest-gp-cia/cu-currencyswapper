@@ -4,7 +4,7 @@
     {
         public const string AmountMustBePositive = "Amount must be a positive number";
 
-        public virtual ValidationResult Validate(double amount)
+        public virtual ValidationResult Validate(decimal amount)
         {
             var result = new ValidationResult();
 

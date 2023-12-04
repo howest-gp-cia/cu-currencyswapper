@@ -6,7 +6,7 @@ namespace Howest.Prog.Cia.CurrencySwapper.Web.Controllers
 {
     public class CurrencyController : Controller
     {
-        private const double EurToUsdRate = 1.0813771; //1 EUR is altijd 1,08 USD
+        private const decimal EurToUsdRate = 1.0813771M; //1 EUR is altijd 1,08 USD
         private readonly AmountValidator _validator;
         private readonly CurrencyConverter _converter;
 
@@ -24,12 +24,12 @@ namespace Howest.Prog.Cia.CurrencySwapper.Web.Controllers
         [HttpPost]
         public IActionResult Convert(ConvertViewModel model)
         {
-            double amount = model.Amount;
+            decimal amount = model.Amount;
 
             var validationResult = _validator.Validate(amount);
             if (validationResult.IsValid)
             {
-                double convertedAmount = _converter.Convert(amount, EurToUsdRate);
+                decimal convertedAmount = _converter.Convert(amount, EurToUsdRate);
                 model.ConvertedAmount = convertedAmount;
                 model.ShowResult = true;
                 return View(model);
