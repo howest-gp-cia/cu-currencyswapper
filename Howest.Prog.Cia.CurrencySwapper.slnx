@@ -9,7 +9,9 @@
   </Folder>
   <Folder Name="/Libraries/">
     <Project Path="Howest.Prog.Cia.CurrencySwapper.Core/Howest.Prog.Cia.CurrencySwapper.Core.csproj" />
-    <Project Path="Howest.Prog.Cia.CurrencySwapper.Infrastructure/Howest.Prog.Cia.CurrencySwapper.Infrastructure.csproj" />
+    <Project Path="Howest.Prog.Cia.CurrencySwapper.Infrastructure/Howest.Prog.Cia.CurrencySwapper.Infrastructure.csproj">
+      <Build Solution="Debug|*" Project="false" />
+    </Project>
   </Folder>
   <Folder Name="/Tests/">
     <Project Path="Howest.Prog.Cia.CurrencySwapper.Core.Tests/Howest.Prog.Cia.CurrencySwapper.Core.Tests.csproj" />
