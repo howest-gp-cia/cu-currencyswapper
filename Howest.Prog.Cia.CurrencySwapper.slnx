@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/.docs/">
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Apps/">
+    <Project Path="Howest.Prog.Cia.CurrencySwapper.Cons/Howest.Prog.Cia.CurrencySwapper.Cons.csproj" />
+    <Project Path="Howest.Prog.Cia.CurrencySwapper.Web/Howest.Prog.Cia.CurrencySwapper.Web.csproj" />
+    <Project Path="Howest.Prog.Cia.CurrencySwapper.Wpf/Howest.Prog.Cia.CurrencySwapper.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/Libraries/">
+    <Project Path="Howest.Prog.Cia.CurrencySwapper.Core/Howest.Prog.Cia.CurrencySwapper.Core.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Howest.Prog.Cia.CurrencySwapper.Core.Tests/Howest.Prog.Cia.CurrencySwapper.Core.Tests.csproj" />
+    <Project Path="Howest.Prog.Cia.CurrencySwapper.Web.Tests/Howest.Prog.Cia.CurrencySwapper.Web.Tests.csproj" />
+  </Folder>
+</Solution>
