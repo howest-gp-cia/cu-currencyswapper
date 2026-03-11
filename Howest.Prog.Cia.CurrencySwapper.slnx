@@ -12,6 +12,8 @@
   </Folder>
   <Folder Name="/Tests/">
     <Project Path="Howest.Prog.Cia.CurrencySwapper.Core.Tests/Howest.Prog.Cia.CurrencySwapper.Core.Tests.csproj" />
-    <Project Path="Howest.Prog.Cia.CurrencySwapper.Web.Tests/Howest.Prog.Cia.CurrencySwapper.Web.Tests.csproj" />
+    <Project Path="Howest.Prog.Cia.CurrencySwapper.Web.Tests/Howest.Prog.Cia.CurrencySwapper.Web.Tests.csproj">
+      <Build Solution="Debug|*" Project="false" />
+    </Project>
   </Folder>
 </Solution>
